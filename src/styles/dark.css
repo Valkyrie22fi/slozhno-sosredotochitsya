@@ -1,0 +1,42 @@
+.page {
+}
+
+.page.theme_dark {
+  --dark-color: #000028;
+  --heading-color: #db00ff;
+  --text-color: #f1b2ce;
+
+  background-color: var(--dark-color);
+}
+
+.page.theme_dark .header {
+  background-image: url(../images/cover-image-dark.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.page.theme_dark .rec {
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 21px;
+  right: 29px;
+  text-transform: uppercase;
+}
+
+.page.theme_dark .rec::after {
+  content: '';
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  display: block;
+  height: 9px;
+  width: 9px;
+  margin-left: 10px;
+}
+
+.page.theme_dark .title {
+  color: var(--heading-color);
+}
