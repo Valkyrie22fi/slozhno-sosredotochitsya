@@ -1,7 +1,6 @@
 /* stylelint-disable color-hex-length */
 /* stylelint-disable rule-empty-line-before */
 /* Глобальные стили для проекта, их можно дополнять и менять по желанию */
-
 *,
 *::before,
 *::after {
@@ -54,18 +53,13 @@ body {
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
-.subtitle {
-  background-color: var(--accent-color);
-  color: var(--dark-color);
-  font-size: 18px;
-  font-weight: 700;
-}
-
+.subtitle,
 .second-subtitle {
   background-color: var(--accent-color);
   color: var(--dark-color);
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 700;
+  line-height: calc(23.4 / 18 * 100%);
 }
 
 .horizontal {
@@ -76,8 +70,8 @@ body {
   grid-row: span 2;
 }
 
-.text-shadow {
-  text-shadow: 2px 2px 0 var(--accent-color);
+.rec {
+  display: none;
 }
 
 .page {
@@ -85,11 +79,14 @@ body {
 }
 
 .header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  margin-bottom: 60px;
+  margin-block-end: 60px;
   padding: 20px;
   position: relative;
 }
@@ -104,15 +101,15 @@ body {
 }
 
 .frame::after {
-  border-top: 1px solid var(--accent-color);
-  border-right: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
   top: 20px;
   right: 20px;
 }
 
 .frame::before {
-  border-bottom: 1px solid var(--accent-color);
-  border-left: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
   bottom: 20px;
   left: 20px;
 }
@@ -131,18 +128,18 @@ body {
   text-transform: lowercase;
 }
 
-.header__theme-menu-button.active {
+.header__theme-menu-button_active {
   border: 1px solid var(--accent-color);
 }
 
 .header__title {
-  margin-left: -20px;
+  margin-inline-end: -20px;
 }
 
 .header__subtitle {
-  margin-top: 14.844vh;
-  margin-bottom: 14.844vh;
-  margin-left: auto;
+  margin-block-start: 14.844vh;
+  margin-block-end: 14.844vh;
+  margin-inline-start: auto;
   width: 50%;
 }
 
@@ -157,34 +154,33 @@ body {
 }
 
 .article_mb-s {
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .article_mb-m {
-  margin-bottom: 80px;
+  margin-block-end: 80px;
 }
 
 .article__title {
-  color: var(--accent-color);
   font-size: 18px;
   font-weight: bold;
   line-height: calc(23.4 / 18 * 100%);
 }
 
 .article__subtitle {
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .article__second-subtitle {
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .artile__paragraph:not(:last-child) {
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .gallery__subtitle {
-  margin-bottom: 20px;
+  margin-block-end: 20px;
 }
 
 .gallery__list {
@@ -218,6 +214,20 @@ body {
   position: relative;
 }
 
+@media (width < 1024px) {
+  .header__theme-menu {
+    margin-inline-end: auto;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+
+  .article_row-m {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 @media (768px <= width < 1024px) {
   .title {
     font-size: 120px;
@@ -225,25 +235,16 @@ body {
   }
 
   .header__theme-menu {
-    margin-left: auto;
-    margin-top: 16.8vh;
-  }
-
-  .header__theme-menu-list {
-    flex-direction: column;
+    margin-block-start: 16.8vh;
   }
 
   .header__subtitle {
-    margin-bottom: 15.844vh;
-    margin-top: 15.844vh;
+    margin-block-end: 15.844vh;
+    margin-block-start: 15.844vh;
   }
 
   .gallery__list {
     grid-auto-rows: 25vw 29.948vw 41.408vw;
-  }
-
-  .article_row-m {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -252,12 +253,45 @@ body {
     font-size: 116px;
     line-height: calc(95.7 / 116 * 100%);
   }
+
+  .header {
+    margin-block-end: 40px;
+    padding: 10px;
+  }
+
+  .header__title {
+    margin-inline-end: 0;
+  }
+
+  .header__theme-menu {
+    margin-block-start: 9.45vh;
+  }
+
+  .header__subtitle {
+    margin-block-end: 8vh;
+    margin-block-start: 8vh;
+    width: 100%;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .article_row-s {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .article_mb-m {
+    margin-bottom: 50px;
+  }
+
   .gallery__list {
     grid-template-columns: 1fr;
     grid-auto-rows: 37.87vw 94.67vw 63.2vw 100vw 237px;
     row-gap: 10px;
     column-gap: 0;
   }
+
   .horizontal {
     grid-column: auto;
   }

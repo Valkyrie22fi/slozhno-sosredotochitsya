@@ -11,9 +11,6 @@
 
 .page.theme_dark .header {
   background-image: url(../images/cover-image-dark.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
 }
 
 .page.theme_dark .rec {
@@ -34,9 +31,17 @@
   display: block;
   height: 9px;
   width: 9px;
-  margin-left: 10px;
+  margin-inline-end: 10px;
 }
 
 .page.theme_dark .title {
   color: var(--heading-color);
+}
+
+.page.theme_dark .article__title {
+  color: var(--accent-color);
+}
+
+.page.theme_dark .text-shadow {
+  text-shadow: 2px 2px 0 var(--accent-color);
 }

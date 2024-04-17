@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/favicon.svg" />
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/variables.css" />
     <link rel="stylesheet" href="./styles/global.css" />
@@ -51,7 +52,7 @@
       </div>
     </header>
     <div class="content">
-      <section class="article article_mb-m">
+      <section class="article article_mb-m article_row-s">
         <h2 class="article__title">Почему сосредоточиться так сложно</h2>
         <div class="article__content horizontal">
           <h3 class="article__subtitle subtitle">Многозадачность</h3>
@@ -79,9 +80,8 @@
           </p>
         </div>
       </section>
-      <section class="article article_mb-s">
+      <section class="article article_mb-s article_row-s">
         <h2 class="article__title">Что снижает концентрацию внимания?</h2>
-        <div class="article__content horizontal"></div>
       </section>
       <section class="article article_mb-m article_row-m">
         <div class="article__content">
@@ -119,7 +119,7 @@
           </p>
         </div>
       </section>
-      <section class="article article_mb-m">
+      <section class="article article_mb-m article_row-s">
         <h2 class="article__title">
           Как концентрироваться лучше, чем золотая рыбка (то есть дольше трёх
           секунд)
@@ -181,45 +181,53 @@
         <h3 class="gallery__subtitle subtitle">А можно в картинках?</h3>
         <ul class="gallery__list">
           <li class="gallery__item horizontal">
-            <img
-              class="gallery__img gallery__img-1"
-              srcset="./images/sunset-m.png, ./images/sunset.png 768px"
-              src="./images/sunset.png"
-              alt="закат"
-            />
+            <picture class="gallery__img gallery__img-1">
+              <source
+                media="(min-width:365px)"
+                srcset="./images/sunset-m.png"
+              />
+              <source media="(min-width:768px)" srcset="./images/sunset.png" />
+              <img src="./images/sunset.png" alt="закат" />
+            </picture>
           </li>
           <li class="gallery__item vertical">
             <img
               class="gallery__img gallery__img-2"
-              srcset="./images/ice-cream-m.png, ./images/ice-cream.png 768px"
               src="./images/ice-cream.png"
+              srcset="
+                ./images/ice-cream-m.png 320w,
+                ./images/ice-cream.png   400w
+              "
               alt="весёлое мороженое"
             />
           </li>
           <li class="gallery__item vertical">
-            <img
-              class="gallery__img gallery__img-4"
-              srcset="./images/tape-m.png, ./images/tape.png 768px"
-              src="./images/tape.png"
-              alt="касета для магнитофона"
-            />
+            <picture class="gallery__img gallery__img-4">
+              <source media="(min-width: 365px)" srcset="./images/tape-m.png" />
+              <source media="(min-width: 768px)" srcset="./images/tape.png" />
+              <img src="./images/tape.png" alt="касета для магнитофона" />
+            </picture>
           </li>
           <li class="gallery__item">
-            <img
-              class="gallery__img gallery__img-3"
-              srcset="./images/books-m.png, ./images/books.png 768px"
-              src="./images/books.png"
-              alt="книги"
-            />
+            <picture class="gallery__img gallery__img-3">
+              <source
+                media="(min-width: 365px)"
+                srcset="./images/books-m.png"
+              />
+              <source media="(min-width: 768px)" srcset="./images/books.png" />
+              <img src="./images/books.png" alt="книги" />
+            </picture>
           </li>
 
           <li class="gallery__item horizontal">
-            <img
-              class="gallery__img gallery__img-5"
-              srcset="./images/street-m.png, ./images/street.png 768px"
-              src="./images/street.png"
-              alt=""
-            />
+            <picture class="gallery__img gallery__img-5">
+              <source
+                media="(min-width: 365px)"
+                srcset="./images/street-m.png"
+              />
+              <source media="(min-width: 768px)" srcset="./images/street.png" />
+              <img src="./images/street.png" alt="улица" />
+            </picture>
           </li>
         </ul>
       </section>

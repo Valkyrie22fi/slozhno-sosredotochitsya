@@ -64,7 +64,7 @@ function js() {
 }
 
 function fonts() {
-  return gulp.src('src/fonts/**/*')
+  return gulp.src('src/fonts/**/*.{woff,woff2}', {'buffer': true})
     .pipe(gulp.dest('dist/fonts/'))
 }
 
@@ -77,7 +77,7 @@ function watchFiles() {
   gulp.watch(['src/styles/**/*.css'], css);
   gulp.watch(['src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}'], images);
   gulp.watch(['src/scripts/**/*.js'], js);
-  gulp.watch(['src/fonts/**/*'], fonts);
+  gulp.watch(['src/fonts/**/*.{woff,woff2}'], fonts);
 }
 
 const build = gulp.series(clean, gulp.parallel(html, css, images, js, fonts));
