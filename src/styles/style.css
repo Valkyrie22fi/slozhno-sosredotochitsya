@@ -1,44 +1,9 @@
 /* stylelint-disable color-hex-length */
 /* stylelint-disable rule-empty-line-before */
-/* Глобальные стили для проекта, их можно дополнять и менять по желанию */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-picture {
-  margin: 0;
-  padding: 0;
-}
-
-button,
-a {
-  color: currentColor;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
 
 body {
   color: var(--text-color);
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: 'IBM Plex mono', monospace;
   min-inline-size: 375px;
   max-inline-size: 1440px;
   margin: 0 auto;
@@ -47,6 +12,7 @@ body {
 }
 
 .title {
+  color: var(--heading-color);
   font-size: 157px;
   font-weight: 700;
   line-height: calc(129.53 / 157 * 100%);
@@ -59,6 +25,21 @@ body {
   color: var(--dark-color);
   font-size: 18px;
   line-height: calc(23.4 / 18 * 100%);
+}
+
+.link {
+  text-decoration: none;
+}
+
+/* В макете в фигме не нашла hover и acive эффекты, добавила на своё усмотрение */
+.link:hover,
+.link:active {
+  color: var(--accent-color);
+  transition: color 0.25s ease;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
 
 .second-subtitle {
@@ -75,9 +56,27 @@ body {
 
 .rec {
   display: none;
+  color: var(--accent-color);
+  align-items: center;
+  position: absolute;
+  top: 21px;
+  right: 30px;
+  text-transform: uppercase;
+}
+
+.rec::after {
+  content: '';
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  display: block;
+  height: 9px;
+  width: 9px;
+  margin-inline-start: 10px;
 }
 
 .page {
+  background-image: url(../images/cover-image-dark.png);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -167,6 +166,7 @@ body {
 }
 
 .article__title {
+  color: var(--accent-color);
   font-size: 18px;
   font-weight: bold;
   line-height: calc(23.4 / 18 * 100%);
@@ -231,6 +231,29 @@ body {
   position: relative;
 }
 
+@media (prefers-color-scheme: light) {
+  .page.theme_light {
+    --heading-color: #ffc2e6;
+    --bg-color: #fff1f7;
+    --text-color: #353430;
+    --text-bg-color: #ff8dcb;
+  }
+
+  .frame::after,
+  .frame::before {
+    border-color: var(--text-color);
+  }
+
+  .second-subtitle,
+  .subtitle {
+    background-color: var(--text-bg-color);
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 0 var(--text-bg-color);
+  }
+}
+
 @media (width < 1024px) {
   .header__theme-menu {
     margin-inline-start: auto;
@@ -243,13 +266,9 @@ body {
   .article_row-m {
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .artile__paragraph {
-    letter-spacing: 0.1px;
-  }
 }
 
-@media (768px <= width < 1024px) {
+@media (width < 1024px) {
   .title {
     font-size: 120px;
     line-height: calc(99 / 120 * 100%);
