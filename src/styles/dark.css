@@ -6,7 +6,7 @@
   background-color: var(--dark-color);
 }
 
-.page.theme_dark .header {
+.page.theme_dark {
   background-image: url(../images/cover-image-dark.png);
 }
 

@@ -7,7 +7,7 @@
   background-color: var(--bg-color);
 }
 
-.page.theme_light .header {
+.page.theme_light {
   background-image: url(../images/cover-image-light.png);
 }
 
