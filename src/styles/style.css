@@ -58,8 +58,11 @@ body {
   background-color: var(--accent-color);
   color: var(--dark-color);
   font-size: 18px;
-  font-weight: 700;
   line-height: calc(23.4 / 18 * 100%);
+}
+
+.second-subtitle {
+  font-weight: 400;
 }
 
 .horizontal {
@@ -124,7 +127,8 @@ body {
   background: none;
   border: 1px solid #ffffff00;
   color: var(--accent-color);
-  padding: 2px 13px;
+  line-height: calc(18 / 18 * 100%);
+  padding: 3px 13px;
   text-transform: lowercase;
 }
 
@@ -133,7 +137,7 @@ body {
 }
 
 .header__title {
-  margin-inline-end: -20px;
+  margin-inline-start: -20px;
 }
 
 .header__subtitle {
@@ -168,15 +172,27 @@ body {
 }
 
 .article__subtitle {
-  margin-block-end: 20px;
+  margin-block-end: 10px;
 }
 
 .article__second-subtitle {
   margin-block-end: 10px;
 }
 
+.article__second-subtitle__m {
+  margin-block-end: 20px;
+}
+
+.artile__paragraph {
+  line-height: calc(23.5 / 18 * 100%);
+}
+
 .artile__paragraph:not(:last-child) {
   margin-block-end: 20px;
+}
+
+.gallery {
+  margin-block-end: 65px;
 }
 
 .gallery__subtitle {
@@ -216,7 +232,7 @@ body {
 
 @media (width < 1024px) {
   .header__theme-menu {
-    margin-inline-end: auto;
+    margin-inline-start: auto;
   }
 
   .header__theme-menu-list {
@@ -225,6 +241,10 @@ body {
 
   .article_row-m {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .artile__paragraph {
+    letter-spacing: 0.1px;
   }
 }
 
@@ -255,12 +275,12 @@ body {
   }
 
   .header {
-    margin-block-end: 40px;
+    margin-block-end: 30px;
     padding: 10px;
   }
 
   .header__title {
-    margin-inline-end: 0;
+    margin-inline-start: 0;
   }
 
   .header__theme-menu {
@@ -285,9 +305,21 @@ body {
     margin-bottom: 50px;
   }
 
+  .article__second-subtitle {
+    margin-block-end: 11px;
+  }
+
+  .gallery {
+    margin-block-end: 30px;
+  }
+
+  .gallery__subtitle {
+    margin-block-end: 10px;
+  }
+
   .gallery__list {
     grid-template-columns: 1fr;
-    grid-auto-rows: 37.87vw 94.67vw 63.2vw 100vw 237px;
+    grid-auto-rows: 37.87vw 94.67vw 63.2vw 95vw 237px;
     row-gap: 10px;
     column-gap: 0;
   }
@@ -300,12 +332,12 @@ body {
     grid-row: auto;
   }
 
-  .header::after {
+  .frame::after {
     top: 10px;
     right: 10px;
   }
 
-  .header::before {
+  .frame::before {
     bottom: 10px;
     left: 10px;
   }
