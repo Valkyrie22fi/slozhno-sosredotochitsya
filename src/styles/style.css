@@ -19,6 +19,10 @@ body {
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
+.subtitle {
+  font-weight: bold;
+}
+
 .subtitle,
 .second-subtitle {
   background-color: var(--accent-color);
@@ -29,11 +33,18 @@ body {
 
 .link {
   text-decoration: none;
+  outline: none;
+}
+
+.button {
+  outline: none;
+  background: none;
 }
 
 /* В макете в фигме не нашла hover и acive эффекты, добавила на своё усмотрение */
 .link:hover,
-.link:active {
+.link:active,
+.link:focus {
   color: var(--accent-color);
   transition: color 0.25s ease;
 }
@@ -85,13 +96,11 @@ body {
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
   height: 100vh;
-  margin-block-end: 60px;
   padding: 20px;
   position: relative;
+  grid-template-rows: 1fr 130px 1fr;
 }
 
 .frame::after,
@@ -104,15 +113,15 @@ body {
 }
 
 .frame::after {
-  border-block-start: 1px solid var(--accent-color);
-  border-inline-end: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--border-color);
+  border-inline-end: 1px solid var(--border-color);
   top: 20px;
   right: 20px;
 }
 
 .frame::before {
-  border-block-end: 1px solid var(--accent-color);
-  border-inline-start: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--border-color);
+  border-inline-start: 1px solid var(--border-color);
   bottom: 20px;
   left: 20px;
 }
@@ -124,7 +133,6 @@ body {
 }
 
 .header__theme-menu-button {
-  background: none;
   border: 1px solid #ffffff00;
   color: var(--accent-color);
   line-height: calc(18 / 18 * 100%);
@@ -132,8 +140,10 @@ body {
   text-transform: lowercase;
 }
 
-.header__theme-menu-button_active {
-  border: 1px solid var(--accent-color);
+.header__theme-menu-button_active,
+.header__theme-menu-button:focus,
+.header__theme-menu-button:hover {
+  border: 1px solid var(--border-color);
 }
 
 .header__title {
@@ -141,9 +151,8 @@ body {
 }
 
 .header__subtitle {
-  margin-block-start: 14.844vh;
-  margin-block-end: 14.844vh;
-  margin-inline-start: auto;
+  align-self: center;
+  justify-self: end;
   width: 50%;
 }
 
@@ -159,6 +168,10 @@ body {
 
 .article_mb-s {
   margin-block-end: 20px;
+}
+
+.article_mt-m {
+  margin-block-start: 60px;
 }
 
 .article_mb-m {
@@ -231,29 +244,6 @@ body {
   position: relative;
 }
 
-@media (prefers-color-scheme: light) {
-  .page.theme_light {
-    --heading-color: #ffc2e6;
-    --bg-color: #fff1f7;
-    --text-color: #353430;
-    --text-bg-color: #ff8dcb;
-  }
-
-  .frame::after,
-  .frame::before {
-    border-color: var(--text-color);
-  }
-
-  .second-subtitle,
-  .subtitle {
-    background-color: var(--text-bg-color);
-  }
-
-  .text-shadow {
-    text-shadow: 2px 2px 0 var(--text-bg-color);
-  }
-}
-
 @media (width < 1024px) {
   .header__theme-menu {
     margin-inline-start: auto;
@@ -274,6 +264,10 @@ body {
     line-height: calc(99 / 120 * 100%);
   }
 
+  .header {
+    grid-template-rows: 1fr 100px 1fr;
+  }
+
   .header__theme-menu {
     margin-block-start: 16.8vh;
   }
@@ -286,6 +280,10 @@ body {
   .gallery__list {
     grid-auto-rows: 25vw 29.948vw 41.408vw;
   }
+
+  .article__content {
+    padding-left: 8px;
+  }
 }
 
 @media (width < 768px) {
@@ -295,6 +293,7 @@ body {
   }
 
   .header {
+    grid-template-rows: 1fr 191px 1fr;
     margin-block-end: 30px;
     padding: 10px;
   }
@@ -322,11 +321,19 @@ body {
   }
 
   .article_mb-m {
-    margin-bottom: 50px;
+    margin-block-end: 50px;
+  }
+
+  .article_mt-m {
+    margin-block-start: 0;
   }
 
   .article__second-subtitle {
     margin-block-end: 11px;
+  }
+
+  .article__content {
+    padding-left: 0;
   }
 
   .gallery {
@@ -360,5 +367,27 @@ body {
   .frame::before {
     bottom: 10px;
     left: 10px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent-color: #ff8dcb;
+    --heading-color: #ffc2e6;
+    --text-color: #353430;
+    --border-color: #353430;
+  }
+
+  .frame::after,
+  .frame::before {
+    border-color: var(--text-color);
+  }
+
+  .article__title {
+    color: var(--text-color);
+  }
+
+  .header__theme-menu-button {
+    color: var(--text-color);
   }
 }
