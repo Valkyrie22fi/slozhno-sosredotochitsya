@@ -4,18 +4,18 @@
 body {
   color: var(--text-color);
   font-family: 'IBM Plex mono', monospace;
-  min-inline-size: 375px;
-  max-inline-size: 1440px;
+  min-inline-size: var(--min-inline-size);
+  max-inline-size: var(--max-inline-size);
   margin: 0 auto;
-  font-size: 18px;
+  font-size: var(--font-size);
   font-weight: normal;
 }
 
 .title {
   color: var(--heading-color);
-  font-size: 157px;
+  font-size: var(--title-size);
   font-weight: 700;
-  line-height: calc(129.53 / 157 * 100%);
+  line-height: calc(var(--title-lh) * 100%);
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
@@ -27,26 +27,32 @@ body {
 .second-subtitle {
   background-color: var(--accent-color);
   color: var(--dark-color);
-  font-size: 18px;
-  line-height: calc(23.4 / 18 * 100%);
+  font-size: var(--subtitle-size);
+  line-height: calc(var(--subtitle-lh) * 100%);
 }
 
 .link {
+  cursor: pointer;
   text-decoration: none;
+  transition: color var(--transition-delay) ease;
   outline: none;
+  padding: 0 2px;
 }
 
 .button {
   outline: none;
   background: none;
+  cursor: pointer;
 }
 
-/* В макете в фигме не нашла hover и acive эффекты, добавила на своё усмотрение */
 .link:hover,
-.link:active,
-.link:focus {
-  color: var(--accent-color);
-  transition: color 0.25s ease;
+.link:active {
+  border-bottom: 1px solid var(--text-color);
+}
+
+.link:focus-visible {
+  border: 1px solid var(--text-color);
+  padding: 0 1px;
 }
 
 .text-shadow {
@@ -58,15 +64,15 @@ body {
 }
 
 .horizontal {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 
 .vertical {
-  grid-row: span 2;
+  grid-row: span 1;
 }
 
 .rec {
-  display: none;
+  display: flex;
   color: var(--accent-color);
   align-items: center;
   position: absolute;
@@ -140,8 +146,11 @@ body {
   text-transform: lowercase;
 }
 
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--border-color);
+}
+
 .header__theme-menu-button_active,
-.header__theme-menu-button:focus,
 .header__theme-menu-button:hover {
   border: 1px solid var(--border-color);
 }
@@ -162,8 +171,16 @@ body {
 
 .article {
   display: grid;
-  grid-gap: 20px;
+}
+
+.article__row {
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+}
+
+.article__column {
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }
 
 .article_mb-s {
@@ -236,6 +253,14 @@ body {
   object-fit: cover;
 }
 
+.gallery__horizontal {
+  grid-column: span 2;
+}
+
+.gallery__vertical {
+  grid-row: span 2;
+}
+
 .footer {
   align-items: center;
   display: flex;
@@ -244,7 +269,7 @@ body {
   position: relative;
 }
 
-@media (width < 1024px) {
+@media (width <= 1024px) {
   .header__theme-menu {
     margin-inline-start: auto;
   }
@@ -252,16 +277,12 @@ body {
   .header__theme-menu-list {
     flex-direction: column;
   }
-
-  .article_row-m {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
-@media (width < 1024px) {
-  .title {
-    font-size: 120px;
-    line-height: calc(99 / 120 * 100%);
+@media (width < 769px) {
+  :root {
+    --title-size: 120px;
+    --title-lh: 99 / 120;
   }
 
   .header {
@@ -281,15 +302,25 @@ body {
     grid-auto-rows: 25vw 29.948vw 41.408vw;
   }
 
-  .article__content {
-    padding-left: 8px;
+  .article__row {
+    grid-gap: 20px;
+  }
+
+  .article__column {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
-@media (width < 768px) {
-  .title {
-    font-size: 116px;
-    line-height: calc(95.7 / 116 * 100%);
+@media (376px< width < 769px) {
+  .article__column .article__title {
+    width: 30%;
+  }
+}
+
+@media (width < 376px) {
+  :root {
+    --title-size: 116px;
+    --title-lh: 95.7 / 116;
   }
 
   .header {
@@ -316,7 +347,7 @@ body {
     padding: 10px;
   }
 
-  .article_row-s {
+  .article__row {
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -328,8 +359,8 @@ body {
     margin-block-start: 0;
   }
 
-  .article__second-subtitle {
-    margin-block-end: 11px;
+  .article__second-subtitle_m {
+    margin-block-end: 17px;
   }
 
   .article__content {
@@ -351,11 +382,11 @@ body {
     column-gap: 0;
   }
 
-  .horizontal {
+  .gallery__horizontal {
     grid-column: auto;
   }
 
-  .vertical {
+  .gallery__vertical {
     grid-row: auto;
   }
 
@@ -367,27 +398,5 @@ body {
   .frame::before {
     bottom: 10px;
     left: 10px;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --accent-color: #ff8dcb;
-    --heading-color: #ffc2e6;
-    --text-color: #353430;
-    --border-color: #353430;
-  }
-
-  .frame::after,
-  .frame::before {
-    border-color: var(--text-color);
-  }
-
-  .article__title {
-    color: var(--text-color);
-  }
-
-  .header__theme-menu-button {
-    color: var(--text-color);
   }
 }

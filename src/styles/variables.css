@@ -4,4 +4,12 @@
   --heading-color: #db00ff;
   --text-color: #f1b2ce;
   --border-color: #ff0070;
+  --font-size: 18px;
+  --title-size: 157px;
+  --title-lh: 129.53 / 157;
+  --subtitle-size: 18;
+  --subtitle-lh: 23.4 / 18;
+  --min-inline-size: 375px;
+  --max-inline-size: 1440px;
+  --transition-delay: 0.25s;
 }

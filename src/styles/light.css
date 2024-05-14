@@ -1,3 +1,35 @@
+/* stylelint-disable rule-empty-line-before */
 .page.theme_light {
   background-image: url(../images/cover-image-light.png);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent-color: #ff8dcb;
+    --heading-color: #ffc2e6;
+    --text-color: #353430;
+    --border-color: #353430;
+  }
+
+  .rec {
+    display: none;
+  }
+
+  .frame::after,
+  .frame::before {
+    border-color: var(--text-color);
+  }
+
+  .article__title {
+    color: var(--text-color);
+  }
+
+  .header__theme-menu-button {
+    color: var(--text-color);
+  }
+
+  .second-subtitle,
+  .subtitle {
+    color: var(--text-color);
+  }
 }
