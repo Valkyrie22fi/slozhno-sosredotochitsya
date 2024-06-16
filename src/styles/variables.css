@@ -1,9 +1,11 @@
-:root {
+:root .page {
   --accent-color: #ff0070;
-  --dark-color: #000028;
+  --dark-color: #353430;
   --heading-color: #db00ff;
   --text-color: #f1b2ce;
   --border-color: #ff0070;
+  /* stylelint-disable-next-line color-function-notation */
+  --border-color-hover: rgba(255, 0, 112, 0.4);
   --font-size: 18px;
   --title-size: 157px;
   --title-lh: 129.53 / 157;

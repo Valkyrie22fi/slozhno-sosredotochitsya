@@ -1,1 +1,13 @@
+:root .page.theme_dark {
+  --accent-color: #ff0070;
+  --dark-color: #000028;
+  --heading-color: #db00ff;
+  --text-color: #f1b2ce;
+  --border-color: #ff0070;
+  /* stylelint-disable-next-line color-function-notation */
+  --border-color-hover: rgba(255, 0, 112, 0.4);
+}
 
+.page.page.theme_dark {
+  background-image: url(../images/cover-image-dark.png);
+}
