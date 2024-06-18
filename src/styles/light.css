@@ -16,57 +16,13 @@
   display: none;
 }
 
-.page.theme_light .frame::after,
-.page.theme_light .frame::before {
-  border-color: var(--text-color);
-}
-
-.page.theme_light .article__title {
-  color: var(--text-color);
-}
-
-.page.theme_light .header__theme-menu-button {
-  color: var(--text-color);
-}
-
-.page.theme_light .second-subtitle,
-.page.theme_light .subtitle {
-  color: var(--text-color);
-}
-
 @media (prefers-color-scheme: light) {
-  .page {
-    background-image: url(../images/cover-image-light.png);
-  }
-
-  :root .page {
+  :root {
     --accent-color: #ff8dcb;
     --heading-color: #ffc2e6;
     --text-color: #353430;
     --border-color: #353430;
     /* stylelint-disable-next-line color-function-notation */
     --border-color-hover: rgba(50, 49, 45, 0.4);
-  }
-
-  .rec {
-    display: none;
-  }
-
-  .frame::after,
-  .frame::before {
-    border-color: var(--text-color);
-  }
-
-  .article__title {
-    color: var(--text-color);
-  }
-
-  .header__theme-menu-button {
-    color: var(--text-color);
-  }
-
-  .second-subtitle,
-  .subtitle {
-    color: var(--text-color);
   }
 }

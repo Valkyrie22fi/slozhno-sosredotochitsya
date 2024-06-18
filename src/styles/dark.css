@@ -8,6 +8,6 @@
   --border-color-hover: rgba(255, 0, 112, 0.4);
 }
 
-.page.page.theme_dark {
+.page.theme_dark {
   background-image: url(../images/cover-image-dark.png);
 }
