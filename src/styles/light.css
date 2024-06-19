@@ -30,11 +30,11 @@
     --border-color-hover: rgba(50, 49, 45, 0.4);
   }
 
-  .page.theme_light .rec {
+  .rec {
     display: none;
   }
 
-  .page.theme_light {
+  .page {
     background-image: url(../images/cover-image-light.png);
   }
 }
