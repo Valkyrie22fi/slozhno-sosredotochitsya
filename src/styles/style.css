@@ -26,7 +26,7 @@ body {
 .subtitle,
 .second-subtitle {
   background-color: var(--accent-color);
-  color: var(--dark-color);
+  color: var(--text-color-dark);
   font-size: var(--subtitle-size);
   line-height: calc(var(--subtitle-lh) * 100%);
 }
@@ -140,7 +140,7 @@ body {
 
 .header__theme-menu-button {
   border: 1px solid #ffffff00;
-  color: var(--accent-color);
+  color: var(--accent-text-color);
   line-height: calc(18 / 18 * 100%);
   padding: 3px 13px;
   text-transform: lowercase;
@@ -200,7 +200,7 @@ body {
 }
 
 .article__title {
-  color: var(--accent-color);
+  color: var(--accent-text-color);
   font-size: 18px;
   font-weight: bold;
   line-height: calc(23.4 / 18 * 100%);

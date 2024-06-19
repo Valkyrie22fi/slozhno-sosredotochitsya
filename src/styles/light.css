@@ -5,8 +5,10 @@
 
 :root .page.theme_light {
   --accent-color: #ff8dcb;
+  --accent-text-color: #353430;
   --heading-color: #ffc2e6;
   --text-color: #353430;
+  --text-color-dark: #353430;
   --border-color: #353430;
   /* stylelint-disable-next-line color-function-notation */
   --border-color-hover: rgba(50, 49, 45, 0.4);
@@ -19,10 +21,20 @@
 @media (prefers-color-scheme: light) {
   :root {
     --accent-color: #ff8dcb;
+    --accent-text-color: #353430;
     --heading-color: #ffc2e6;
     --text-color: #353430;
+    --text-color-dark: #353430;
     --border-color: #353430;
     /* stylelint-disable-next-line color-function-notation */
     --border-color-hover: rgba(50, 49, 45, 0.4);
+  }
+
+  .page.theme_light .rec {
+    display: none;
+  }
+
+  .page.theme_light {
+    background-image: url(../images/cover-image-light.png);
   }
 }
